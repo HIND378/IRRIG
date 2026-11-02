@@ -1,0 +1,1309 @@
+{
+  "info": {
+    "name": "IRRIG Connect API",
+    "description": "Collection de test de l'API REST IRRIG Connect. Lancer d'abord une requête « Connexion » : le jeton est enregistré automatiquement.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{token}}",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "base",
+      "value": "http://localhost:8000/api"
+    },
+    {
+      "key": "token",
+      "value": ""
+    }
+  ],
+  "item": [
+    {
+      "name": "1. Connexion",
+      "item": [
+        {
+          "name": "Connexion agriculteur",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{base}}/login",
+              "host": [
+                "{{base}}"
+              ],
+              "path": [
+                "login"
+              ]
+            },
+            "auth": {
+              "type": "noauth"
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"email\": \"agriculteur@irrig.ma\",\n  \"password\": \"password\"\n}"
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "const t = pm.response.json().token;",
+                  "if (t) pm.collectionVariables.set('token', t);"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ]
+        },
+        {
+          "name": "Connexion commercial",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{base}}/login",
+              "host": [
+                "{{base}}"
+              ],
+              "path": [
+                "login"
+              ]
+            },
+            "auth": {
+              "type": "noauth"
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"email\": \"commercial.agadir@irrig.ma\",\n  \"password\": \"password\"\n}"
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "const t = pm.response.json().token;",
+                  "if (t) pm.collectionVariables.set('token', t);"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ]
+        },
+        {
+          "name": "Connexion responsable",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{base}}/login",
+              "host": [
+                "{{base}}"
+              ],
+              "path": [
+                "login"
+              ]
+            },
+            "auth": {
+              "type": "noauth"
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"email\": \"responsable.agadir@irrig.ma\",\n  \"password\": \"password\"\n}"
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "const t = pm.response.json().token;",
+                  "if (t) pm.collectionVariables.set('token', t);"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ]
+        },
+        {
+          "name": "Connexion directeur",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{base}}/login",
+              "host": [
+                "{{base}}"
+              ],
+              "path": [
+                "login"
+              ]
+            },
+            "auth": {
+              "type": "noauth"
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"email\": \"directeur@irrig.ma\",\n  \"password\": \"password\"\n}"
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "const t = pm.response.json().token;",
+                  "if (t) pm.collectionVariables.set('token', t);"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ]
+        },
+        {
+          "name": "Connexion technicien",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{base}}/login",
+              "host": [
+                "{{base}}"
+              ],
+              "path": [
+                "login"
+              ]
+            },
+            "auth": {
+              "type": "noauth"
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"email\": \"technicien1.agadir@irrig.ma\",\n  \"password\": \"password\"\n}"
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "const t = pm.response.json().token;",
+                  "if (t) pm.collectionVariables.set('token', t);"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ]
+        },
+        {
+          "name": "Connexion magasinier",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{base}}/login",
+              "host": [
+                "{{base}}"
+              ],
+              "path": [
+                "login"
+              ]
+            },
+            "auth": {
+              "type": "noauth"
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"email\": \"magasinier.agadir@irrig.ma\",\n  \"password\": \"password\"\n}"
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "const t = pm.response.json().token;",
+                  "if (t) pm.collectionVariables.set('token', t);"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ]
+        },
+        {
+          "name": "Connexion admin",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{base}}/login",
+              "host": [
+                "{{base}}"
+              ],
+              "path": [
+                "login"
+              ]
+            },
+            "auth": {
+              "type": "noauth"
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"email\": \"admin@irrig.ma\",\n  \"password\": \"password\"\n}"
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "const t = pm.response.json().token;",
+                  "if (t) pm.collectionVariables.set('token', t);"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ]
+        },
+        {
+          "name": "Profil connecté",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{base}}/me",
+              "host": [
+                "{{base}}"
+              ],
+              "path": [
+                "me"
+              ]
+            }
+          }
+        },
+        {
+          "name": "Déconnexion",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{base}}/logout",
+              "host": [
+                "{{base}}"
+              ],
+              "path": [
+                "logout"
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "2. Portail client (agriculteur)",
+      "item": [
+        {
+          "name": "Mes équipements",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{base}}/mes-equipements",
+              "host": [
+                "{{base}}"
+              ],
+              "path": [
+                "mes-equipements"
+              ]
+            }
+          }
+        },
+        {
+          "name": "Demander une intervention",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{base}}/interventions",
+              "host": [
+                "{{base}}"
+              ],
+              "path": [
+                "interventions"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"equipement_id\": 1,\n  \"type\": \"panne\",\n  \"description\": \"La pompe ne démarre plus le matin.\"\n}"
+            }
+          }
+        },
+        {
+          "name": "Suivre mes demandes",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{base}}/interventions",
+              "host": [
+                "{{base}}"
+              ],
+              "path": [
+                "interventions"
+              ]
+            }
+          }
+        },
+        {
+          "name": "Donner un avis",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{base}}/interventions/1/avis",
+              "host": [
+                "{{base}}"
+              ],
+              "path": [
+                "interventions",
+                "1",
+                "avis"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"note\": 5,\n  \"commentaire\": \"Rapide et efficace\"\n}"
+            }
+          }
+        },
+        {
+          "name": "Mes factures",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{base}}/factures",
+              "host": [
+                "{{base}}"
+              ],
+              "path": [
+                "factures"
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "3. Commercial",
+      "item": [
+        {
+          "name": "Lister les clients",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{base}}/clients?q=",
+              "host": [
+                "{{base}}"
+              ],
+              "path": [
+                "clients?q="
+              ]
+            }
+          }
+        },
+        {
+          "name": "Créer un client",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{base}}/clients",
+              "host": [
+                "{{base}}"
+              ],
+              "path": [
+                "clients"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"nom\": \"Hassan Amrani\",\n  \"type\": \"petit_exploitant\",\n  \"telephone\": \"06 55 44 33 22\",\n  \"langue\": \"ar\"\n}"
+            }
+          }
+        },
+        {
+          "name": "Fiche client",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{base}}/clients/1",
+              "host": [
+                "{{base}}"
+              ],
+              "path": [
+                "clients",
+                "1"
+              ]
+            }
+          }
+        },
+        {
+          "name": "Ajouter une exploitation",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{base}}/clients/1/exploitations",
+              "host": [
+                "{{base}}"
+              ],
+              "path": [
+                "clients",
+                "1",
+                "exploitations"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"commune\": \"Taroudant\",\n  \"culture\": \"Agrumes\",\n  \"superficie_ha\": 5\n}"
+            }
+          }
+        },
+        {
+          "name": "Ajouter un équipement",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{base}}/exploitations/1/equipements",
+              "host": [
+                "{{base}}"
+              ],
+              "path": [
+                "exploitations",
+                "1",
+                "equipements"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"type\": \"pompe_solaire\",\n  \"numero_serie\": \"IRG-TEST-0001\",\n  \"date_installation\": \"2026-10-01\",\n  \"fin_garantie\": \"2028-10-01\"\n}"
+            }
+          }
+        },
+        {
+          "name": "Créer un devis",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{base}}/devis",
+              "host": [
+                "{{base}}"
+              ],
+              "path": [
+                "devis"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"client_id\": 1,\n  \"lignes\": [\n    {\n      \"designation\": \"Kit goutte-à-goutte 1 ha\",\n      \"quantite\": 1,\n      \"prix_unitaire\": 8500\n    }\n  ]\n}"
+            }
+          }
+        },
+        {
+          "name": "Accepter un devis",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{base}}/devis/1/accepter",
+              "host": [
+                "{{base}}"
+              ],
+              "path": [
+                "devis",
+                "1",
+                "accepter"
+              ]
+            }
+          }
+        },
+        {
+          "name": "Refuser un devis",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{base}}/devis/2/refuser",
+              "host": [
+                "{{base}}"
+              ],
+              "path": [
+                "devis",
+                "2",
+                "refuser"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"motif_refus\": \"Prix trop élevé\"\n}"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "4. Responsable / directeur",
+      "item": [
+        {
+          "name": "Demandes à planifier",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{base}}/interventions?statut=nouvelle",
+              "host": [
+                "{{base}}"
+              ],
+              "path": [
+                "interventions?statut=nouvelle"
+              ]
+            }
+          }
+        },
+        {
+          "name": "Techniciens de l'agence",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{base}}/techniciens",
+              "host": [
+                "{{base}}"
+              ],
+              "path": [
+                "techniciens"
+              ]
+            }
+          }
+        },
+        {
+          "name": "Planifier une intervention",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{base}}/interventions/1/planifier",
+              "host": [
+                "{{base}}"
+              ],
+              "path": [
+                "interventions",
+                "1",
+                "planifier"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"technicien_id\": 7,\n  \"date_planifiee\": \"2026-12-01 09:00:00\"\n}"
+            }
+          }
+        },
+        {
+          "name": "KPI de l'agence",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{base}}/kpi",
+              "host": [
+                "{{base}}"
+              ],
+              "path": [
+                "kpi"
+              ]
+            }
+          }
+        },
+        {
+          "name": "KPI consolidés (directeur)",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{base}}/kpi/consolides",
+              "host": [
+                "{{base}}"
+              ],
+              "path": [
+                "kpi",
+                "consolides"
+              ]
+            }
+          }
+        },
+        {
+          "name": "Valider un transfert (directeur)",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{base}}/transferts/1/valider",
+              "host": [
+                "{{base}}"
+              ],
+              "path": [
+                "transferts",
+                "1",
+                "valider"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"decision\": \"valide\"\n}"
+            }
+          }
+        },
+        {
+          "name": "Créer une agence (directeur)",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{base}}/agences",
+              "host": [
+                "{{base}}"
+              ],
+              "path": [
+                "agences"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"ville\": \"Marrakech\",\n  \"adresse\": \"Route de Safi\"\n}"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "5. Technicien (mobile)",
+      "item": [
+        {
+          "name": "Mes missions",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{base}}/mes-missions",
+              "host": [
+                "{{base}}"
+              ],
+              "path": [
+                "mes-missions"
+              ]
+            }
+          }
+        },
+        {
+          "name": "Catalogue de pièces",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{base}}/pieces",
+              "host": [
+                "{{base}}"
+              ],
+              "path": [
+                "pieces"
+              ]
+            }
+          }
+        },
+        {
+          "name": "Démarrer",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{base}}/interventions/1/demarrer",
+              "host": [
+                "{{base}}"
+              ],
+              "path": [
+                "interventions",
+                "1",
+                "demarrer"
+              ]
+            }
+          }
+        },
+        {
+          "name": "Clôturer (en ligne)",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{base}}/interventions/1/cloturer",
+              "host": [
+                "{{base}}"
+              ],
+              "path": [
+                "interventions",
+                "1",
+                "cloturer"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"rapport\": \"Filtre nettoyé, goutteurs remplacés.\",\n  \"pieces\": [\n    {\n      \"piece_id\": 2,\n      \"quantite\": 1\n    }\n  ],\n  \"signature_client\": \"Ahmed Benali\"\n}"
+            }
+          }
+        },
+        {
+          "name": "Synchroniser les rapports hors ligne",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{base}}/sync",
+              "host": [
+                "{{base}}"
+              ],
+              "path": [
+                "sync"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"rapports\": [\n    {\n      \"uuid\": \"3f1d2c4e-8a5b-4c6d-9e7f-0a1b2c3d4e5f\",\n      \"intervention_id\": 1,\n      \"rapport\": \"Saisi sans réseau.\",\n      \"pieces\": [],\n      \"photos\": []\n    }\n  ]\n}"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "6. Magasinier",
+      "item": [
+        {
+          "name": "Stock de l'agence",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{base}}/stocks",
+              "host": [
+                "{{base}}"
+              ],
+              "path": [
+                "stocks"
+              ]
+            }
+          }
+        },
+        {
+          "name": "Pièces sous le seuil",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{base}}/stocks?alerte=1",
+              "host": [
+                "{{base}}"
+              ],
+              "path": [
+                "stocks?alerte=1"
+              ]
+            }
+          }
+        },
+        {
+          "name": "Réception",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{base}}/stocks/1/reception",
+              "host": [
+                "{{base}}"
+              ],
+              "path": [
+                "stocks",
+                "1",
+                "reception"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"quantite\": 10\n}"
+            }
+          }
+        },
+        {
+          "name": "Inventaire",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{base}}/stocks/1",
+              "host": [
+                "{{base}}"
+              ],
+              "path": [
+                "stocks",
+                "1"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"quantite\": 12,\n  \"seuil_alerte\": 5\n}"
+            }
+          }
+        },
+        {
+          "name": "Demander un transfert",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{base}}/transferts",
+              "host": [
+                "{{base}}"
+              ],
+              "path": [
+                "transferts"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"agence_source_id\": 2,\n  \"piece_id\": 1,\n  \"quantite\": 3\n}"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "7. Administrateur",
+      "item": [
+        {
+          "name": "Utilisateurs",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{base}}/users",
+              "host": [
+                "{{base}}"
+              ],
+              "path": [
+                "users"
+              ]
+            }
+          }
+        },
+        {
+          "name": "Créer un technicien",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{base}}/users",
+              "host": [
+                "{{base}}"
+              ],
+              "path": [
+                "users"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Nouveau Technicien\",\n  \"email\": \"tech.nouveau@irrig.ma\",\n  \"role\": \"technicien\",\n  \"agence_id\": 1,\n  \"specialite\": \"Pompage\",\n  \"zone\": \"Est\",\n  \"password\": \"motdepasse123\"\n}"
+            }
+          }
+        }
+      ]
+    }
+  ]
+}
